@@ -1,0 +1,61 @@
+<div class="container">
+  {{> header}}
+  <br />
+  {{#if messages}}
+  <div class="alert alert-success alert-dismissible" style="max-width: 80%; margin: 1.25em auto;">
+    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+    <strong>{{messages}}</strong>
+  </div>
+  {{/if}}
+  <div class="panel panel-default">
+    <div class="panel-heading">{{test.name}}</div>
+      <div class="panel-body">
+        <div class="well well-lg"><h4>Questions:</h4><br />
+          {{#each test.questions}}
+            <p>
+              <b>{{this.qNo}}.</b> {{this.question}}
+            </p>
+          {{/each}}
+        </div>
+        <form action="/addQuestions" method="post">
+          <div class="form-group" style="width: 80%; margin: 1em auto;">
+            <div class="col-xs-6 input-group hidden" style="margin: auto;">
+              <input id="role" type="password" class="form-control" name="name" value="{{test.name}}">
+              <input id="role" type="password" class="form-control" name="work" value="test">
+            </div>
+            <label for="qno">Question number:</label>
+            <input type="number" name="id" class="form-control" id="qno"required>
+            <label for="comment">Question:</label>
+            <textarea class="form-control" name="question" rows="3" id="question"required></textarea>
+            <label for="o1">Option 1:</label>
+            <input type="text" name="option1" class="form-control" id="o1"required>
+            <label for="02">Option 2:</label>
+            <input type="text" name="option2" class="form-control" id="o2"required>
+            <label for="03">Option 3:</label>
+            <input type="text" name="option3" class="form-control" id="o3"required>
+            <label for="o4">Option 4:</label>
+            <input type="text" name="option4" class="form-control" id="o4"required>
+            <label for="ans">Answer:</label>
+            <input type="text" name="answer" class="form-control" id="ans"required>
+            <br />
+            <button class="btn btn-primary" type="submit">Add question</button>
+          </div>
+        </form>
+        <br />
+        <div class="alert alert-danger" style="max-width: 80%; margin: 1.25em auto;">
+          <form action="/addAssignmentQuestions" method="post">
+            <div class="form-group" style="width: 80%; margin: 1em auto;">
+                <div class="col-xs-6 input-group hidden" style="margin: auto;">
+                  <input id="role" type="password" class="form-control" name="name" value="{{assignment.name}}">
+                  <input id="role" type="password" class="form-control" name="work" value="delete">
+                </div>
+                <label for="qno">Question number:</label>
+                <input type="number" name="id" class="form-control" id="qno"required>
+                <br />
+                <button class="btn btn-danger" type="submit">Delete question</button>
+              </div>
+            </form>
+            </div>
+    </div>
+  </div>
+</div>

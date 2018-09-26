@@ -1,0 +1,15 @@
+<div class="page-header">
+  <ul class="list-inline text-right">
+  {{#if user}}
+  <li>
+    <a href="/{{user.role}}Dashboard/{{user.username}}">Dashboard</a>
+  </li>
+  <li>
+    <a href="/logout">Logout</a>
+  </li>
+  {{else}}
+  <li><a href="/">Register</a></li>
+  <li><a href="/login">Login</a></li>
+  {{/if}}
+</ul>
+</div>

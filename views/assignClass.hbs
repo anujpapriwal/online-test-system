@@ -1,0 +1,56 @@
+<div class="container">
+  {{> header}}
+  <br />
+  <div class="panel panel-default">
+    <div class="panel-heading">Assign classes</div>
+      <div class="panel-body">
+        {{#each faculty}}
+        <ul class="list-inline">
+          <li>
+            <b>Email: </b> {{this.email}}
+          </li>
+          <li>
+            <b>Username: </b> {{this.username}}
+          </li>
+        </ul>
+
+
+        <form action="/assignClass" method="post">
+          <div class="col-xs-6 input-group hidden" style="margin: auto;">
+            <input id="role" type="password" class="form-control" name="username" value="{{this.username}}">
+          </div>
+          <p><b>Year:</b></p>
+          <label class="radio-inline">
+            <input type="radio" name="yearRadio" value="1">1
+          </label>
+          <label class="radio-inline">
+            <input type="radio" name="yearRadio" value="2">2
+          </label>
+          <label class="radio-inline">
+            <input type="radio" name="yearRadio" value="3">3
+          </label>
+          <label class="radio-inline">
+            <input type="radio" name="yearRadio" value="4">4
+          </label><br /><br />
+          <p><b>Section:</b></p>
+          <label class="radio-inline">
+            <input type="radio" name="sectionRadio"value="A">A
+          </label>
+          <label class="radio-inline">
+            <input type="radio" name="sectionRadio" value="B">B
+          </label><br /><br />
+          <label for="sel1">Select list:</label>
+          <select class="form-control" id="sel1" name="subject">
+            <option>IT-5001</option>
+            <option>IT-5002</option>
+          </select>
+          <br />
+          <div class="input-group-btn">
+            <button class="btn btn-default" type="submit">Assign</button>
+          </div>
+        </form>
+        {{/each}}
+        {{a}}
+    </div>
+  </div>
+</div>

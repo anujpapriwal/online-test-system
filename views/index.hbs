@@ -1,0 +1,46 @@
+<div class="container">
+  {{> header }}
+  <br />
+  <h1 class="text-center">
+    <b>Student Register</b>
+  </h1>
+  <br />
+  <form action="/" method="post">
+    <div class="col-xs-6 input-group" style="margin: auto;">
+      <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+      <input id="email" type="email" class="form-control" name="email" placeholder="Email" required>
+    </div><br />
+  <div class="col-xs-6 input-group" style="margin: auto;">
+    <span class="input-group-addon"><i class="glyphicon glyphicon-info-sign"></i></span>
+    <input id="YoF" type="number" class="form-control" name="YoA" placeholder="Year of Admission" required>
+  </div><br />
+  <div class="col-xs-6 input-group" style="margin: auto;">
+    <label class="inline">Year: &nbsp;</label>
+    <label class="checkbox-inline"><input type="checkbox" value="1" name="year">1</label>
+    <label class="checkbox-inline"><input type="checkbox" value="2" name="year">2</label>
+    <label class="checkbox-inline"><input type="checkbox" value="3" name="year">3</label>
+    <label class="checkbox-inline"><input type="checkbox" value="4" name="year">4</label>
+  </div><br />
+  <div class="col-xs-6 input-group" style="margin: auto;">
+    <label class="inline">Section: &nbsp;</label>
+    <label class="checkbox-inline"><input type="checkbox" value="A" name="section">A</label>
+    <label class="checkbox-inline"><input type="checkbox" value="B" name="section">B</label>
+  </div><br />
+  <div class="col-xs-6 input-group" style="margin: auto;">
+    <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+    <input id="username" type="text" class="form-control" name="username" placeholder="Username" required>
+  </div><br />
+  <div class="col-xs-6 input-group" style="margin: auto;">
+    <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+    <input id="password" type="password" class="form-control" name="password" placeholder="Password" required>
+  </div><br />
+  <div class="text-center input-group-btn">
+    <button class="btn btn-default" type="submit">Register</button>
+  </div>
+</form><br />
+  {{#if messages}}
+    <div class="alert alert-danger" style="width: 70%; margin: auto; font-size: 1.5em;">
+        {{messages}}
+    </div>
+  {{/if}}
+</div>

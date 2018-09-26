@@ -1,0 +1,78 @@
+
+<div class="container">
+  <br />
+  <div class="alert alert-info" style="max-width: 80%; margin: 1.25em auto;">
+    <strong>Save your asnwers before submitting the test.</strong>
+  </div>
+  {{#if messages}}
+  <div class="alert alert-success alert-dismissible" style="max-width: 80%; margin: 1.25em auto;">
+    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+    <strong>{{messages}}</strong>
+  </div>
+  {{/if}}
+  <div class="panel panel-default">
+    <div class="panel-heading">{{test.name}}</div>
+      <div class="panel-body">
+        <div class="well well-lg">
+          <h4 class="text-center">Questions</h4><br />
+          <form action="/takeTest" method="post">
+            <div class="alert alert-info text-center" style="max-width: 60%; margin: 1.25em auto;">
+              <strong class="text-danger">Time left: </strong><span id="timer"></span>
+            </div><br />
+            <div class="col-xs-6 input-group hidden" style="margin: auto;">
+              <input id="abcdef" type="number" class="form-control" name="timeLeft">
+            </div>
+            <div class="col-xs-6 input-group hidden" style="margin: auto;">
+              <input id="name" type="password" class="form-control" name="name" value="{{test.name}}">
+            </div>
+            <div class="col-xs-6 input-group hidden" style="margin: auto;">
+              <input id="toUsername" type="password" class="form-control" name="to" value="{{test.username}}">
+            </div>
+            {{#if question}}
+              <p>
+                <b>{{question.qNo}}.</b> {{question.question}}
+              </p>
+              <div class="col-xs-6 input-group hidden" style="margin: auto;">
+                <input id="qno" type="password" class="form-control" name="qno" value="{{question.qNo}}">
+              </div>
+              {{#if answer}}
+                <h4 class="text-danger">
+                  Your previosly selected answer: {{answer.answer}}
+                </h4>
+                <br />
+              {{/if}}
+              <label class="radio-inline">
+                <input type="radio" name="yearRadio" value="{{question.option1}}">{{question.option1}}
+              </label>
+              <label class="radio-inline">
+                <input type="radio" name="yearRadio" value="{{question.option2}}">{{question.option2}}
+              </label>
+              <label class="radio-inline">
+                <input type="radio" name="yearRadio" value="{{question.option3}}">{{question.option3}}
+              </label>
+              <label class="radio-inline">
+                <input type="radio" name="yearRadio" value="{{question.option4}}">{{question.option4}}
+              </label><br /><br />
+            {{/if}}
+            <br />
+            <div class="input-group-btn">
+              <button class="btn btn-info" type="submit">Save & next question</button>
+            </div>
+          </form>
+        </div>
+        <br />
+        <div class="container text-center">
+          <div class="input-group-danger">
+            <a href="/{{user.role}}Dashboard/{{user.username}}"><button id="submitTest" class="btn btn-danger btn-lg">Submit test</button></a>
+          </div><br />
+          <ul class="pagination pagination-lg">
+            {{#each test.questions}}
+              <li>
+                <a href="/takeTest/{{../test.name}}/{{inc @index}}">{{inc @index}}</a>
+              </li>
+            {{/each}}
+          </ul>
+        </div>
+    </div>
+  </div>
+</div>

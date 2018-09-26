@@ -1,0 +1,24 @@
+<div class="container">
+  {{> header }}
+  <br />
+  <h1 class="text-center"><b>Login</b></h1>
+  <br />
+  <form action="/login" method="post">
+  <div class="col-xs-6 input-group" style="margin: auto;">
+    <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+    <input id="username" type="text" class="form-control" name="username" placeholder="Username">
+  </div><br />
+  <div class="col-xs-6 input-group" style="margin: auto;">
+    <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+    <input id="password" type="password" class="form-control" name="password" placeholder="Password">
+  </div><br />
+  <div class="text-center input-group-btn">
+    <button class="btn btn-default" type="submit">Login</button>
+  </div>
+  </form><br />
+    {{#if error}}
+      <div class="alert alert-danger" style="width: 70%; margin: auto; font-size: 1.5em;">
+          {{error}}
+      </div>
+    {{/if}}
+</div>

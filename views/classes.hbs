@@ -1,0 +1,38 @@
+<div class="container">
+  {{> header }}
+  <br />
+  <span class="text-center">
+    <h1>Class: {{year}}-{{section}}</h1>
+  </span>
+  <br />
+    <div class="panel panel-default" style="max-width: 80%; margin: 1em auto;">
+      <div class="panel-body" style="font-size: 1.25em">
+        {{#each answer}}
+        <ul class="list-inline">
+          <li>
+            <b>Email: </b> <span class="text-info">{{this.email}}</span>
+          </li>
+          <li>
+            <b>Username: </b> <span class="text-info">{{this.username}}</span>
+          </li>
+          <li>
+            <b>Section: </b> <span class="text-info">{{this.section}}</span>
+          </li>
+          <li>
+            <b>Year: </b> <span class="text-info">{{this.year}}</span>
+          </li>
+        </ul>
+        <div class="alert alert-info" style="max-width: 80%; margin: 1.25em auto;">
+            <ul class="list-inline">
+              <li>
+                <b>Appeared for: </b> <span class="text-danger">{{this.name}}</span>
+              </li>
+              <li>
+                <b>Scored: </b> <span class="text-danger">{{this.scored}}/{{this.numberOfQuestions}}</span>
+              </li>
+            </ul>
+          {{/each}}
+        </div>
+      </div>
+    </div>
+</div>
