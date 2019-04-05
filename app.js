@@ -12,6 +12,7 @@ var flash = require('connect-flash');
 var Schema = mongoose.Schema;
 var passport = require('passport');
 var Handlebars = require('handlebars');
+var db = require('./models/db');
 
 var index = require('./routes/index');
 var users = require('./routes/users');
@@ -32,11 +33,7 @@ var takeTest = require('./routes/takeTest');
 var showMarks = require('./routes/showMarks');
 
 var app = express();
-var db = mongoose.connect('mongodb://localhost/test', function(error){
-    if(error) console.log(error);
 
-        console.log("connection successful");
-});
 
 // view engine setup
 app.engine('hbs' , hbs({extname: 'hbs', defaultLayout: 'layout', layoutsDir: __dirname + '/views/layouts/'}));
